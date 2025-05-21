@@ -39,160 +39,312 @@ const moduleContent = {
       characterImage: 'https://img.freepik.com/free-vector/cute-astronaut-superhero-cartoon-vector-icon-illustration-science-technology-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-3900.jpg',
       steps: [
         {
-          title: 'What are Digital Treasures?',
-          content: 'Digital treasures are special things that exist on computers, like pictures, music, or even special tokens. Just like your toys at home belong to you, digital treasures can belong to people too!',
+          title: 'Collecting Digital Stickers',
+          content: 'Digital treasures are special things that exist on computers, like pictures, music, or even special tokens. Just like your toys at home belong to you, digital treasures can belong to people too! Ada has a special digital sticker book that everyone can see, but only she can add stickers to it.',
           activity: {
-            type: 'quiz',
-            title: 'Quick Check',
-            description: 'Can you name something that could be a digital treasure?',
+            type: 'craft',
+            title: 'Design Your Own Digital Sticker',
+            description: 'Draw a special sticker that you would like to have in your digital collection!',
           },
         },
         {
-          title: 'Who Owns Digital Treasures?',
-          content: 'When you draw a picture on paper, it\'s yours. But how do we know who owns a digital picture? That\'s where blockchain helps! It\'s like a special notebook that writes down who owns what, and everyone can see it.',
+          title: 'Your Own Digital Treasure Box',
+          content: 'On a blockchain like Cardano, we can keep track of who owns what digital treasure. It\'s like having a special chest that only you can open with your special key. Everyone can see the chest, but only you can open it!',
           activity: {
-            type: 'matching',
-            title: 'Ownership Matching',
-            description: 'Match the digital treasures to their owners!',
+            type: 'craft',
+            title: 'Make a Paper Wallet',
+            description: 'Create and decorate a "wallet" box for your paper tokens and a paper key with unique patterns.',
           },
         },
         {
-          title: 'Keeping Digital Treasures Safe',
-          content: 'Blockchain keeps your digital treasures safe by using special codes called "keys". It\'s like having a special key to your treasure chest that only you can use!',
+          title: 'Finding Digital Treasures',
+          content: 'You can collect digital treasures just like you collect toys or stickers! Each one is special and can\'t be copied. The blockchain remembers that it belongs to you. Ada loves to go on treasure hunts using special clues to find new digital treasures.',
           activity: {
             type: 'game',
-            title: 'Key Keeper',
-            description: 'Help Captain Block find the right keys to unlock the digital treasures!',
+            title: 'Treasure Hunt',
+            description: 'Play hide and seek with "transaction" cards hidden around the room!',
           },
         },
         {
-          title: 'Sharing and Trading',
-          content: 'You can share your digital treasures with friends or trade them, just like trading cards! Blockchain helps make sure everyone knows who owns what after trading.',
+          title: 'Trading Digital Stickers',
+          content: 'Just like trading real stickers with friends, you can trade digital stickers too! The blockchain helps make sure trades are fair and everyone gets what they agreed to.',
           activity: {
-            type: 'simulation',
-            title: 'Trading Time',
-            description: 'Practice trading digital treasures with your friends!',
+            type: 'game',
+            title: 'Sticker Trading Game',
+            description: 'Trade physical stickers with your friends using simple blockchain rules.',
           },
         },
         {
-          title: 'Digital Treasures in the Real World',
-          content: 'Digital treasures are used in many places! They can be special items in games, art that people collect, or even tickets to events.',
+          title: 'Congratulations!',
+          content: 'Great job learning about Digital Treasures! Now you know how blockchain helps us keep track of special digital things.',
           activity: {
-            type: 'creative',
-            title: 'Create Your Treasure',
-            description: 'Draw your own digital treasure and think about what makes it special!',
+            type: 'certificate',
+            title: 'Digital Treasures Expert',
+            description: 'You\'ve earned your Digital Treasures badge!',
           },
         },
       ],
     },
     middle: {
-      title: 'Digital Treasures',
+      title: 'Understanding Digital Assets',
       description: 'Explore digital ownership and how blockchain technology secures and verifies who owns what in the digital world.',
       character: 'Professor Ledger',
       characterImage: 'https://img.freepik.com/free-vector/cute-boy-scientist-cartoon-vector-icon-illustration-people-science-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-3851.jpg',
       steps: [
         {
-          title: 'Understanding Digital Assets',
-          content: 'Digital assets are items that exist in digital form and have value. These can include digital art, music, in-game items, or tokens that represent ownership of something. Unlike physical items, digital assets can be copied easily, which creates challenges for proving ownership.',
+          title: 'What Are Tokens?',
+          content: 'Digital assets are items that exist in digital form and come with the right to use. On Cardano, we have different types of tokens for different purposes. Some tokens are fungible (each one is the same as another), while others are non-fungible (each one is unique).',
           activity: {
-            type: 'quiz',
-            title: 'Digital Asset Identification',
-            description: 'Can you identify which of these are digital assets and explain why?',
+            type: 'interactive',
+            title: 'Token Categories',
+            description: 'Design different categories of tokens for different purposes and categorize various tokens by their uses.',
           },
         },
         {
-          title: 'The Ownership Challenge',
-          content: 'Before blockchain, it was difficult to prove who truly owned a digital asset. Centralized databases could be changed or hacked, and there was no transparent way to track ownership history. Blockchain solves this by creating a tamper-proof record that everyone can verify.',
+          title: 'NFTs: One-of-a-Kind Digital Items',
+          content: 'Non-fungible tokens (NFTs) are special digital assets that represent ownership of a unique item. Unlike cryptocurrencies where each unit is identical, each NFT is distinct and can represent artwork, collectibles, or other unique digital items.',
           activity: {
-            type: 'case study',
-            title: 'Ownership Detective',
-            description: 'Investigate how ownership was tracked before blockchain and identify the problems.',
+            type: 'project',
+            title: 'Create Your NFT',
+            description: 'Create a unique digital artwork and "mint" it as a paper NFT, then verify the uniqueness of each other\'s NFTs using a registry.',
           },
         },
         {
-          title: 'Blockchain and Digital Ownership',
-          content: 'Blockchain creates a secure record of who owns what by using cryptography (secret codes) and a distributed ledger (a record kept by many computers). When you own a digital asset on a blockchain, you have a unique digital key that proves it\'s yours.',
+          title: 'Building a Collection',
+          content: 'Digital collections work similarly to physical collections, but with some important differences. Digital items don\'t degrade over time, can be authenticated easily, and can sometimes have special digital features that physical items can\'t have.',
           activity: {
-            type: 'simulation',
-            title: 'Blockchain Explorer',
-            description: 'Use a simplified blockchain explorer to track the ownership history of a digital asset.',
+            type: 'project',
+            title: 'Start a Collection',
+            description: 'Start a themed digital collection project and participate in a digital collection trading simulation.',
           },
         },
         {
-          title: 'Trading and Transferring Digital Assets',
-          content: 'When you want to give or sell your digital asset to someone else, blockchain records this transfer securely. This creates a complete history of ownership that can\'t be changed, called "provenance."',
-          activity: {
-            type: 'role play',
-            title: 'Digital Marketplace',
-            description: 'Practice buying and selling digital assets and see how blockchain records these transactions.',
-          },
-        },
-        {
-          title: 'Real-World Applications',
-          content: 'Digital ownership through blockchain is being used for art (NFTs), gaming items, music rights, event tickets, and even to represent ownership of physical items like houses or cars in the digital world.',
+          title: 'Digital Ownership in the Real World',
+          content: 'Digital ownership extends beyond collectibles. It can represent tickets to events, proof of membership, or even ownership of virtual land in games. These digital rights are becoming increasingly important in our connected world.',
           activity: {
             type: 'research',
-            title: 'Application Explorer',
-            description: 'Research and present a real-world example of blockchain being used for digital ownership.',
+            title: 'Real-World Applications',
+            description: 'Explore three real-world examples of how digital ownership is being used today.',
+          },
+        },
+        {
+          title: 'Module Complete!',
+          content: 'Congratulations on completing the Understanding Digital Assets module! You now understand how blockchain technology enables secure digital ownership and the various forms digital assets can take.',
+          activity: {
+            type: 'achievement',
+            title: 'Digital Asset Specialist',
+            description: 'You\'ve earned the Digital Asset badge for your knowledge of blockchain-based digital assets!',
           },
         },
       ],
     },
     older: {
-      title: 'Digital Treasures',
-      description: 'A comprehensive exploration of digital asset ownership, non-fungible tokens (NFTs), and how blockchain technology enables verifiable digital property rights.',
+      title: 'Smart Contracts Explained',
+      description: 'A comprehensive exploration of smart contracts, their applications, and how they enable automated agreements on the Cardano blockchain.',
       character: 'Dr. Crypto',
       characterImage: 'https://img.freepik.com/free-vector/cute-robot-wearing-glasses-cartoon-vector-icon-illustration-technology-education-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-3717.jpg',
       steps: [
         {
-          title: 'The Evolution of Digital Ownership',
-          content: 'Digital ownership has evolved from simple copyright claims to complex blockchain-based property rights. Traditional digital assets suffered from the "double-spending problem" - the ability to copy digital files infinitely without degradation. Blockchain technology introduced scarcity and verifiable ownership to the digital realm.',
+          title: 'What Are Smart Contracts?',
+          content: 'Smart contracts are self-executing agreements with the terms directly written into code. They automatically enforce and execute the terms of an agreement when predefined conditions are met, without requiring intermediaries.',
           activity: {
             type: 'analysis',
-            title: 'Digital Ownership Timeline',
-            description: 'Create a timeline showing how digital ownership has evolved and identify key technological breakthroughs.',
+            title: 'Contract Analysis',
+            description: 'Design a simple smart contract for a classroom task and identify real-world agreements that could use smart contracts.',
           },
         },
         {
-          title: 'Cryptographic Proof of Ownership',
-          content: 'Blockchain uses public-key cryptography to establish ownership. Your private key (which only you have) creates a digital signature that can be verified using your public key (which everyone can see). This cryptographic system makes it mathematically provable that you authorized a transaction or claim ownership of a digital asset.',
+          title: 'Creating Rules That Work Automatically',
+          content: 'Smart contracts use if-then logic to create rules that execute automatically. For example, "If person A sends 10 tokens, then transfer digital item B to person A." This automation removes the need for trusted third parties to enforce agreements.',
           activity: {
-            type: 'technical demo',
-            title: 'Cryptographic Verification',
-            description: 'Use a simplified cryptographic tool to sign a digital asset and verify ownership.',
+            type: 'programming',
+            title: 'Logic Building',
+            description: 'Use block-based programming to create simple contract logic and debug a broken smart contract scenario.',
           },
         },
         {
-          title: 'Non-Fungible Tokens (NFTs)',
-          content: 'NFTs are unique blockchain tokens that represent ownership of a specific digital or physical item. Unlike cryptocurrencies where each unit is identical (fungible), each NFT has unique properties and metadata. NFTs have revolutionized digital art, collectibles, and gaming by creating verifiable scarcity and provenance.',
+          title: 'Plutus: Cardano\'s Smart Contract Language',
+          content: 'Plutus is Cardano\'s smart contract platform, based on the Haskell programming language. It was designed with security and verification in mind, making it possible to mathematically prove that contracts will behave as expected.',
           activity: {
-            type: 'case study',
-            title: 'NFT Analysis',
-            description: 'Analyze a successful NFT project and identify the factors that contributed to its value and significance.',
+            type: 'technical',
+            title: 'Pseudo-Plutus',
+            description: 'Translate simple English rules into pseudo-Plutus and design a simple application using block-based smart contract logic.',
           },
         },
         {
-          title: 'Smart Contracts and Digital Rights Management',
-          content: 'Smart contracts are self-executing programs on the blockchain that can automatically enforce ownership rights, royalty payments, and usage permissions. They enable creators to maintain control over their digital assets even after sale, such as receiving royalties on secondary sales.',
+          title: 'Real-World Smart Contract Applications',
+          content: 'Smart contracts enable a wide range of applications, from simple escrow services to complex decentralized finance protocols. They can automate business processes, create new markets, and enable trustless interactions between parties who don\'t know each other.',
           activity: {
-            type: 'coding',
-            title: 'Simple Smart Contract',
-            description: 'Create a basic smart contract that defines ownership rules for a digital asset.',
+            type: 'case-study',
+            title: 'Application Analysis',
+            description: 'Research three real-world smart contract applications and analyze their benefits and limitations.',
           },
         },
         {
-          title: 'The Future of Digital Ownership',
-          content: 'Digital ownership is expanding beyond art and collectibles into virtual real estate, identity verification, intellectual property rights, and the metaverse. Emerging technologies like zero-knowledge proofs are enhancing privacy while maintaining verifiability. Interoperability between different blockchain systems is becoming crucial for a seamless digital ownership ecosystem.',
+          title: 'Smart Contract Security and Best Practices',
+          content: 'Security is paramount in smart contract development, as vulnerabilities can lead to loss of funds or other assets. Best practices include formal verification, comprehensive testing, and code audits by security experts.',
           activity: {
-            type: 'research project',
-            title: 'Future Trends',
-            description: 'Research and present on an emerging application of blockchain-based digital ownership.',
+            type: 'security-audit',
+            title: 'Vulnerability Detection',
+            description: 'Identify potential security issues in a sample smart contract and propose solutions.',
+          },
+        },
+        {
+          title: 'Module Mastery Achieved',
+          content: 'You have completed an advanced exploration of smart contracts on blockchain. This knowledge provides a foundation for understanding both current applications and future innovations in this rapidly evolving field.',
+          activity: {
+            type: 'certification',
+            title: 'Smart Contract Architect',
+            description: 'You have earned certification as a Smart Contract Architect, recognizing your comprehensive understanding of blockchain-based automated agreements.',
           },
         },
       ],
     },
   },
-  // Add more modules as needed
+  'blockchain-friends': {
+    young: {
+      title: 'Meet the Blockchain Friends',
+      description: 'Learn about blockchain through fun stories and activities with Ada and her friends.',
+      character: 'Ada',
+      characterImage: 'https://img.freepik.com/free-vector/cute-girl-with-idea-cartoon-vector-icon-illustration-people-technology-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-3900.jpg',
+      steps: [
+        {
+          title: 'Meet Ada and Her Special Book',
+          content: 'Ada has a magical notebook that everyone can see but nobody can erase. When she writes something in it, all her friends can see it, and no one can change it!',
+          activity: {
+            type: 'craft',
+            title: 'Paper Chain Activity',
+            description: 'Create a simple paper chain, each link containing a drawing or note.',
+          },
+        },
+        {
+          title: 'Digital Money Magic',
+          content: 'Ada has special tokens that help her friends trade fairly. Each token is special and can\'t be copied, so everyone knows they\'re real!',
+          activity: {
+            type: 'craft',
+            title: 'Design Your Tokens',
+            description: 'Create paper coins with unique designs that can\'t be copied.',
+          },
+        },
+        {
+          title: 'The Friendship Network',
+          content: 'Ada\'s friends form a circle to check each other\'s work. This way, everyone agrees on what\'s written in the special book.',
+          activity: {
+            type: 'game',
+            title: 'Circle Verification',
+            description: 'Play a circle game where children verify each other\'s simple math problems.',
+          },
+        },
+        {
+          title: 'Congratulations!',
+          content: 'Great job learning about blockchain with Ada and her friends! Now you know how a blockchain works like a special book that everyone can see but nobody can change.',
+          activity: {
+            type: 'certificate',
+            title: 'Blockchain Friend',
+            description: 'You\'ve earned your Blockchain Friend badge!',
+          },
+        },
+      ],
+    },
+    middle: {
+      title: 'How Blockchains Work',
+      description: 'Explore the technical aspects of blockchain technology through interactive activities.',
+      character: 'Professor Chain',
+      characterImage: 'https://img.freepik.com/free-vector/cute-professor-holding-book-cartoon-vector-icon-illustration-people-education-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-3851.jpg',
+      steps: [
+        {
+          title: 'Blocks, Chains, and Networks',
+          content: 'A blockchain is like a chain of digital blocks, each containing multiple transactions. Each block connects to the previous one, creating an unbreakable chain of information.',
+          activity: {
+            type: 'interactive',
+            title: 'Build a Chain',
+            description: 'Build a physical chain of blocks with transaction cards inside and identify which blocks connect to which in a visual puzzle.',
+          },
+        },
+        {
+          title: 'Digital Signatures and Keys',
+          content: 'Digital signatures prove who you are on a blockchain, similar to how your handwritten signature proves your identity on paper. They use special mathematical formulas to create unique signatures that only you can make.',
+          activity: {
+            type: 'craft',
+            title: 'Create a Signature',
+            description: 'Create a personal "signature" with a simple encoding algorithm and verify each other\'s signatures using a decoder key.',
+          },
+        },
+        {
+          title: 'Consensus: How We All Agree',
+          content: 'Blockchain networks need a way for all computers to agree on which transactions are valid. This agreement process is called consensus, and it\'s what makes blockchains trustworthy.',
+          activity: {
+            type: 'game',
+            title: 'Consensus Circle',
+            description: 'Play a musical chairs variant where children must agree on rules for approving "transactions".',
+          },
+        },
+        {
+          title: 'Module Complete!',
+          content: 'Congratulations on completing the How Blockchains Work module! You now understand the fundamental concepts that make blockchain technology possible.',
+          activity: {
+            type: 'achievement',
+            title: 'Blockchain Expert',
+            description: 'You\'ve earned the Blockchain Expert badge for your knowledge of blockchain technology!',
+          },
+        },
+      ],
+    },
+    older: {
+      title: 'Governance and the Future',
+      description: 'Explore how blockchain communities make decisions and shape the future of the technology.',
+      character: 'Director Voltaire',
+      characterImage: 'https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg',
+      steps: [
+        {
+          title: 'How Does Cardano Make Decisions?',
+          content: 'Unlike traditional systems where a single authority makes decisions, Cardano uses decentralized governance. This means that the community of users collectively decides on changes and improvements to the system.',
+          activity: {
+            type: 'simulation',
+            title: 'Governance Simulation',
+            description: 'Participate in a classroom governance simulation with voting on proposed changes.',
+          },
+        },
+        {
+          title: 'Proposing Changes',
+          content: 'Anyone can propose improvements to Cardano through Cardano Improvement Proposals (CIPs). These proposals are discussed, refined, and eventually voted on by the community.',
+          activity: {
+            type: 'project',
+            title: 'Draft a CIP',
+            description: 'Draft a simple Cardano Improvement Proposal (CIP) and present and defend it to classmates.',
+          },
+        },
+        {
+          title: 'The Treasury System',
+          content: 'Cardano has a treasury system that funds development and community projects. A portion of all transaction fees goes into this treasury, and the community votes on which projects should receive funding.',
+          activity: {
+            type: 'simulation',
+            title: 'Treasury Allocation',
+            description: 'Participate in a treasury allocation simulation with project pitches and voting.',
+          },
+        },
+        {
+          title: 'Building a Better World with Blockchain',
+          content: 'Blockchain technology has the potential to address many global challenges, from financial inclusion to supply chain transparency. With this power comes the responsibility to use it ethically.',
+          activity: {
+            type: 'project',
+            title: 'Blockchain Solution',
+            description: 'Design a blockchain solution for a community problem as your final project.',
+          },
+        },
+        {
+          title: 'Module Mastery Achieved',
+          content: 'You have completed an advanced exploration of blockchain governance. This knowledge empowers you to participate in shaping the future of blockchain technology.',
+          activity: {
+            type: 'certification',
+            title: 'Governance Specialist',
+            description: 'You have earned certification as a Governance Specialist, recognizing your understanding of decentralized decision-making systems.',
+          },
+        },
+      ],
+    },
+  },
+  // Additional modules would be added here
 };
 
 const LearningModulePage = () => {

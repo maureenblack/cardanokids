@@ -42,27 +42,96 @@ const HomePage = () => {
     },
   ];
   
-  // Learning modules preview
-  const modules = [
-    {
-      id: 'digital-treasures',
-      title: 'Digital Treasures',
-      description: 'Learn about digital ownership and how blockchain keeps track of who owns what.',
-      image: 'https://img.freepik.com/free-vector/children-playing-with-blocks-toys_1308-133160.jpg',
-    },
-    {
-      id: 'blockchain-basics',
-      title: 'Blockchain Basics',
-      description: "Discover how blockchain works and why it's special.",
-      image: 'https://img.freepik.com/free-vector/children-playing-with-blocks-toys_1308-118859.jpg',
-    },
-    {
-      id: 'smart-contracts',
-      title: 'Smart Contracts',
-      description: "Explore how smart contracts work like digital promises that can't be broken.",
-      image: 'https://img.freepik.com/free-vector/children-playing-with-blocks-toys_1308-126336.jpg',
-    },
-  ];
+  // Learning modules preview based on age group
+  const getModulesByAgeGroup = () => {
+    switch(ageGroup) {
+      case 'young':
+        return [
+          {
+            id: 'blockchain-friends',
+            title: 'Meet the Blockchain Friends',
+            description: 'Learn about blockchain through fun stories with Ada and her magical notebook!',
+            image: 'https://img.freepik.com/free-vector/children-playing-with-blocks-toys_1308-118859.jpg',
+            course: 'COURSE 1',
+            level: 'BEGINNER',
+          },
+          {
+            id: 'digital-treasures',
+            title: 'Digital Treasures',
+            description: 'Collect digital stickers and learn how blockchain helps keep track of who owns what.',
+            image: 'https://img.freepik.com/free-vector/children-playing-with-blocks-toys_1308-133160.jpg',
+            course: 'COURSE 2',
+            level: 'BEGINNER',
+          },
+          {
+            id: 'cardano-land',
+            title: 'Welcome to Cardano Land',
+            description: 'Explore the magical land of Cardano with the friendly Ouroboros dragon!',
+            image: 'https://img.freepik.com/free-vector/children-playing-with-blocks-toys_1308-126336.jpg',
+            course: 'COURSE 2',
+            level: 'BEGINNER',
+          },
+        ];
+      case 'middle':
+        return [
+          {
+            id: 'blockchain-explorers',
+            title: 'How Blockchains Work',
+            description: 'Discover blocks, chains, and networks through fun hands-on activities.',
+            image: 'https://img.freepik.com/free-vector/children-playing-with-blocks-toys_1308-118859.jpg',
+            course: 'COURSE 3',
+            level: 'INTERMEDIATE',
+          },
+          {
+            id: 'exploring-cardano',
+            title: 'Exploring Cardano',
+            description: 'Learn what makes Cardano special and how to use a blockchain explorer.',
+            image: 'https://img.freepik.com/free-vector/children-playing-with-blocks-toys_1308-126336.jpg',
+            course: 'COURSE 3',
+            level: 'INTERMEDIATE',
+          },
+          {
+            id: 'digital-treasures',
+            title: 'Understanding Digital Assets',
+            description: 'Learn about different types of tokens and build your own digital collection!',
+            image: 'https://img.freepik.com/free-vector/children-playing-with-blocks-toys_1308-133160.jpg',
+            course: 'COURSE 4',
+            level: 'INTERMEDIATE',
+          },
+        ];
+      case 'older':
+        return [
+          {
+            id: 'smart-contracts',
+            title: 'Smart Contracts Explained',
+            description: 'Learn how smart contracts work like digital agreements that run automatically.',
+            image: 'https://img.freepik.com/free-vector/children-playing-with-blocks-toys_1308-126336.jpg',
+            course: 'COURSE 5',
+            level: 'ADVANCED',
+          },
+          {
+            id: 'building-cardano',
+            title: 'Building on Cardano',
+            description: 'Design your own decentralized application (DApp) to solve real problems.',
+            image: 'https://img.freepik.com/free-vector/children-playing-with-blocks-toys_1308-118859.jpg',
+            course: 'COURSE 5',
+            level: 'ADVANCED',
+          },
+          {
+            id: 'blockchain-friends',
+            title: 'Governance and the Future',
+            description: 'Explore how Cardano makes decisions and how you can help build a better world with blockchain.',
+            image: 'https://img.freepik.com/free-vector/children-playing-with-blocks-toys_1308-133160.jpg',
+            course: 'COURSE 6',
+            level: 'ADVANCED',
+          },
+        ];
+      default:
+        return [];
+    }
+  };
+  
+  const modules = getModulesByAgeGroup();
   
   return (
     <Box>
@@ -254,6 +323,40 @@ const HomePage = () => {
                       alt={module.title}
                     />
                     <CardContent sx={{ flexGrow: 1 }}>
+                      <Box 
+                        sx={{ 
+                          display: 'flex', 
+                          justifyContent: 'space-between',
+                          mb: 1
+                        }}
+                      >
+                        <Typography 
+                          variant="caption" 
+                          sx={{ 
+                            backgroundColor: getAgeGroupColor(),
+                            color: 'white',
+                            px: 1,
+                            py: 0.5,
+                            borderRadius: 1,
+                            fontWeight: 'bold'
+                          }}
+                        >
+                          {module.course}
+                        </Typography>
+                        <Typography 
+                          variant="caption" 
+                          sx={{ 
+                            backgroundColor: 'secondary.main',
+                            color: 'white',
+                            px: 1,
+                            py: 0.5,
+                            borderRadius: 1,
+                            fontWeight: 'bold'
+                          }}
+                        >
+                          {module.level}
+                        </Typography>
+                      </Box>
                       <Typography gutterBottom variant="h5" component="h3" sx={{ fontWeight: 'bold' }}>
                         {module.title}
                       </Typography>
