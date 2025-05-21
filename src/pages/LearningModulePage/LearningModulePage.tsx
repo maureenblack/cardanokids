@@ -28,6 +28,7 @@ import {
 } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { useAgeGroup } from '../../context/AgeGroupContext';
+import BlockchainBuilder from '../../components/Interactive/BlockchainBuilder';
 
 // Define module content with age-appropriate versions
 const moduleContent = {
@@ -344,6 +345,158 @@ const moduleContent = {
       ],
     },
   },
+  'building-blocks': {
+    young: {
+      title: 'Blockchains Are Like Building Blocks',
+      description: 'Learn how blockchains work by building your own chain of blocks!',
+      character: 'Blocky',
+      characterImage: 'https://img.freepik.com/free-vector/cute-robot-wearing-glasses-cartoon-vector-icon-illustration-technology-education-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-3717.jpg',
+      steps: [
+        {
+          title: 'What is a Blockchain?',
+          content: 'A blockchain is like a special chain of building blocks. Each block contains information and is connected to the block before it. Blocky loves to build chains of blocks to keep track of important information!',
+          activity: {
+            type: 'interactive',
+            title: 'Learn About Blockchain Blocks',
+            description: 'Watch this short video to learn how blockchains work.',
+            component: 'video',
+            props: {
+              videoUrl: 'https://www.youtube.com/embed/SSo_EIwHSd4',
+              title: 'What is a Blockchain?'
+            }
+          },
+        },
+        {
+          title: 'Build Your Own Blockchain',
+          content: 'Now it\'s your turn to build a blockchain! Add blocks to the chain and see how each block connects to the one before it. Each block gets a special code (called a "hash") that depends on what\'s inside the block AND the code from the previous block.',
+          activity: {
+            type: 'interactive',
+            title: 'Blockchain Builder',
+            description: 'Create your own blockchain by adding blocks!',
+            component: 'BlockchainBuilder',
+            props: {}
+          },
+        },
+        {
+          title: 'Why Blockchains Are Special',
+          content: 'Blockchains are special because they\'re very hard to change once they\'re created. If someone tries to change a block, all the blocks that come after it would need to change too! This makes blockchains very secure and trustworthy.',
+          activity: {
+            type: 'quiz',
+            title: 'Blockchain Quiz',
+            description: 'Test what you\'ve learned about blockchains!',
+            questions: [
+              {
+                question: 'What connects one block to another in a blockchain?',
+                options: ['A special code called a hash', 'A piece of string', 'Nothing, they just sit next to each other', 'Glue'],
+                correctAnswer: 0
+              },
+              {
+                question: 'Why are blockchains hard to change?',
+                options: ['They\'re made of very hard material', 'Changing one block means you have to change all the blocks after it', 'They\'re locked with a key', 'They\'re too heavy to move'],
+                correctAnswer: 1
+              }
+            ]
+          },
+        },
+      ],
+    },
+    middle: {
+      title: 'How Blockchains Work',
+      description: 'Explore the technical aspects of blockchain technology and how blocks are linked together.',
+      character: 'Professor Block',
+      characterImage: 'https://img.freepik.com/free-vector/scientist-man-concept-illustration_114360-8147.jpg',
+      steps: [
+        {
+          title: 'Blockchain Architecture',
+          content: 'A blockchain is a distributed ledger that maintains a continuously growing list of records called blocks. Each block contains a timestamp and a link to the previous block, forming a chain. The data in a block cannot be altered retroactively without altering all subsequent blocks.',
+          activity: {
+            type: 'interactive',
+            title: 'Blockchain Explorer',
+            description: 'Examine the structure of a blockchain and see how blocks are connected.',
+            component: 'BlockchainBuilder',
+            props: { advanced: true }
+          },
+        },
+        {
+          title: 'Cryptographic Hashing',
+          content: 'Blockchains use cryptographic hash functions to secure the data in each block. A hash function takes an input of any size and produces a fixed-size output. Even a small change in the input produces a completely different output, making it easy to detect if data has been tampered with.',
+          activity: {
+            type: 'interactive',
+            title: 'Hash Generator',
+            description: 'Try generating hashes from different inputs to see how they work.',
+            component: 'HashGenerator',
+            props: {}
+          },
+        },
+        {
+          title: 'Consensus Mechanisms',
+          content: 'For a blockchain to function, all participants need to agree on which blocks are valid and which order they should be added to the chain. This agreement is achieved through consensus mechanisms like Proof of Stake, which is used by Cardano.',
+          activity: {
+            type: 'quiz',
+            title: 'Consensus Quiz',
+            description: 'Test your knowledge of blockchain consensus mechanisms.',
+            questions: [
+              {
+                question: 'What consensus mechanism does Cardano use?',
+                options: ['Proof of Work', 'Proof of Stake', 'Proof of Authority', 'Proof of Space'],
+                correctAnswer: 1
+              },
+              {
+                question: 'Why is consensus important in a blockchain?',
+                options: ['It makes the blockchain faster', 'It ensures everyone agrees on the valid state of the blockchain', 'It reduces the size of the blockchain', 'It makes mining easier'],
+                correctAnswer: 1
+              }
+            ]
+          },
+        },
+      ],
+    },
+    older: {
+      title: 'Building on Cardano',
+      description: 'Learn how to build applications on the Cardano blockchain using smart contracts and native tokens.',
+      character: 'Developer Dana',
+      characterImage: 'https://img.freepik.com/free-vector/programmer-concept-illustration_114360-2417.jpg',
+      steps: [
+        {
+          title: 'Introduction to Smart Contracts',
+          content: 'Smart contracts are self-executing contracts with the terms directly written into code. On Cardano, smart contracts are written in Plutus, a functional programming language based on Haskell.',
+          activity: {
+            type: 'interactive',
+            title: 'Smart Contract Simulator',
+            description: 'Explore how smart contracts work on the Cardano blockchain.',
+            component: 'SmartContractSimulator',
+            props: {}
+          },
+        },
+        {
+          title: 'Native Tokens on Cardano',
+          content: 'Cardano supports native tokens, which means you can create your own tokens without needing smart contracts. This makes them more efficient and secure compared to tokens on other blockchains.',
+          activity: {
+            type: 'interactive',
+            title: 'Token Creator',
+            description: 'Design your own token on the Cardano blockchain.',
+            component: 'TokenCreator',
+            props: {}
+          },
+        },
+        {
+          title: 'Building a Decentralized Application',
+          content: 'Decentralized applications (DApps) are applications that run on a blockchain network rather than a single computer. They can be used for a wide range of purposes, from finance to gaming to social media.',
+          activity: {
+            type: 'project',
+            title: 'DApp Design Challenge',
+            description: 'Design a decentralized application that could be built on Cardano.',
+            instructions: [
+              'Think of a problem that could be solved with a decentralized application.',
+              'Sketch out the basic functionality of your DApp.',
+              'Consider what smart contracts and tokens would be needed.',
+              'Present your design to the class or group.'
+            ]
+          },
+        },
+      ],
+    },
+  },
   // Additional modules would be added here
 };
 
@@ -356,6 +509,105 @@ const LearningModulePage = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [completed, setCompleted] = useState(false);
   const [progress, setProgress] = useState(0);
+  
+  // Function to render different types of activities
+  const renderActivity = () => {
+    if (!module || !module.steps[activeStep]) return null;
+    
+    const activity = module.steps[activeStep].activity;
+    
+    switch (activity.type) {
+      case 'interactive':
+        // Handle different interactive components
+        switch (activity.component) {
+          case 'BlockchainBuilder':
+            return <BlockchainBuilder {...activity.props} />;
+          case 'video':
+            return (
+              <Box sx={{ mt: 3, position: 'relative', paddingTop: '56.25%', width: '100%' }}>
+                <iframe
+                  src={activity.props.videoUrl}
+                  title={activity.props.title || 'Educational Video'}
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    borderRadius: '8px',
+                    border: 'none'
+                  }}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </Box>
+            );
+          // Add other interactive component types as needed
+          default:
+            return (
+              <Typography variant="body1" color="error">
+                Interactive component "{activity.component}" not implemented yet.
+              </Typography>
+            );
+        }
+      
+      case 'quiz':
+        return (
+          <Box sx={{ mt: 3 }}>
+            {activity.questions && activity.questions.map((question: any, index: number) => (
+              <Card key={index} sx={{ mb: 3, borderRadius: 2 }}>
+                <CardContent>
+                  <Typography variant="h6" gutterBottom>
+                    {index + 1}. {question.question}
+                  </Typography>
+                  {question.options.map((option: string, optIndex: number) => (
+                    <Button
+                      key={optIndex}
+                      variant={optIndex === question.correctAnswer ? 'contained' : 'outlined'}
+                      color={optIndex === question.correctAnswer ? 'success' : 'primary'}
+                      sx={{ mr: 1, mb: 1 }}
+                    >
+                      {option}
+                    </Button>
+                  ))}
+                </CardContent>
+              </Card>
+            ))}
+          </Box>
+        );
+      
+      case 'craft':
+      case 'project':
+        return (
+          <Box sx={{ mt: 3 }}>
+            <Typography variant="body1" paragraph>
+              {activity.description}
+            </Typography>
+            {activity.instructions && (
+              <>
+                <Typography variant="subtitle1" sx={{ fontWeight: 'bold', mt: 2 }}>
+                  Instructions:
+                </Typography>
+                <ol>
+                  {activity.instructions.map((instruction: string, index: number) => (
+                    <li key={index}>
+                      <Typography variant="body2">{instruction}</Typography>
+                    </li>
+                  ))}
+                </ol>
+              </>
+            )}
+          </Box>
+        );
+      
+      default:
+        return (
+          <Typography variant="body1">
+            {activity.description}
+          </Typography>
+        );
+    }
+  };
   
   // Get module content based on moduleId and ageGroup
   const module = moduleId && Object.keys(moduleContent).includes(moduleId)
@@ -550,9 +802,12 @@ const LearningModulePage = () => {
                       <Typography variant="h6" gutterBottom sx={{ color: theme.palette[ageGroup].main }}>
                         Activity: {module.steps[activeStep].activity.title}
                       </Typography>
-                      <Typography variant="body1">
+                      <Typography variant="body1" paragraph>
                         {module.steps[activeStep].activity.description}
                       </Typography>
+                      
+                      {/* Render the appropriate activity component */}
+                      {renderActivity()}
                     </CardContent>
                   </Card>
                   
