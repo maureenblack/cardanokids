@@ -29,6 +29,9 @@ import {
 import { motion } from 'framer-motion';
 import { useAgeGroup } from '../../context/AgeGroupContext';
 import BlockchainBuilder from '../../components/Interactive/BlockchainBuilder';
+import HashGenerator from '../../components/Interactive/HashGenerator';
+import TokenCreator from '../../components/Interactive/TokenCreator';
+import SmartContractSimulator from '../../components/Interactive/SmartContractSimulator';
 
 // Define module content with age-appropriate versions
 const moduleContent = {
@@ -522,6 +525,12 @@ const LearningModulePage = () => {
         switch (activity.component) {
           case 'BlockchainBuilder':
             return <BlockchainBuilder {...activity.props} />;
+          case 'HashGenerator':
+            return <HashGenerator {...activity.props} />;
+          case 'TokenCreator':
+            return <TokenCreator {...activity.props} />;
+          case 'SmartContractSimulator':
+            return <SmartContractSimulator {...activity.props} />;
           case 'video':
             return (
               <Box sx={{ mt: 3, position: 'relative', paddingTop: '56.25%', width: '100%' }}>

@@ -21,6 +21,7 @@ const LearningModulePage = React.lazy(() => import('./pages/LearningModulePage/L
 const ParentDashboardPage = React.lazy(() => import('./pages/ParentDashboardPage/ParentDashboardPage'));
 const AboutPage = React.lazy(() => import('./pages/AboutPage/AboutPage'));
 const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
+const TestComponents = React.lazy(() => import('./pages/TestComponents'));
 
 const App = () => {
   return (
@@ -39,6 +40,7 @@ const App = () => {
                     <Route path="/learning/:moduleId?" element={<LearningModulePage />} />
                     <Route path="/parent-dashboard" element={<ParentDashboardPage />} />
                     <Route path="/about" element={<AboutPage />} />
+                    <Route path="/test-components" element={<TestComponents />} />
                     <Route path="*" element={<NotFoundPage />} />
                   </Routes>
                 </React.Suspense>
