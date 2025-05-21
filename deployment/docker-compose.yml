@@ -1,0 +1,205 @@
+version: '3.8'
+
+services:
+  # API Server
+  api-server:
+    build:
+      context: ..
+      dockerfile: deployment/docker/api.Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=cardanokids
+      - DB_USER=cardanokids_user
+      - DB_PASSWORD=your_secure_password
+      - CARDANO_NODE_URL=http://cardano-node:8090
+      - IPFS_NODE_URL=http://ipfs-node:5001
+      - JWT_SECRET=your_jwt_secret
+      - CORS_ORIGIN=https://cardanokids.example.com
+    depends_on:
+      - postgres
+      - cardano-node
+      - ipfs-node
+    volumes:
+      - ../logs:/app/logs
+    restart: unless-stopped
+    networks:
+      - cardano-kids-network
+
+  # Frontend
+  frontend:
+    build:
+      context: ..
+      dockerfile: deployment/docker/frontend.Dockerfile
+    ports:
+      - "3000:80"
+    environment:
+      - REACT_APP_API_URL=https://api.cardanokids.example.com
+      - REACT_APP_CARDANO_NETWORK=testnet
+      - REACT_APP_CONTENT_CDN=https://content.cardanokids.example.com
+    restart: unless-stopped
+    networks:
+      - cardano-kids-network
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:14
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=cardanokids_user
+      - POSTGRES_PASSWORD=your_secure_password
+      - POSTGRES_DB=cardanokids
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ../deployment/database/init:/docker-entrypoint-initdb.d
+    restart: unless-stopped
+    networks:
+      - cardano-kids-network
+
+  # Cardano Node
+  cardano-node:
+    image: inputoutput/cardano-node:latest
+    ports:
+      - "8090:8090"
+      - "12798:12798"  # Prometheus metrics
+    volumes:
+      - cardano-node-data:/data
+      - ../deployment/cardano/config:/config
+    command: [
+      "run",
+      "--config", "/config/testnet-config.json",
+      "--database-path", "/data/db",
+      "--socket-path", "/data/node.socket",
+      "--host-addr", "0.0.0.0",
+      "--port", "8090",
+      "--topology", "/config/testnet-topology.json"
+    ]
+    restart: unless-stopped
+    networks:
+      - cardano-kids-network
+
+  # IPFS Node
+  ipfs-node:
+    image: ipfs/kubo:latest
+    ports:
+      - "5001:5001"  # API
+      - "8080:8080"  # Gateway
+    volumes:
+      - ipfs-data:/data/ipfs
+    restart: unless-stopped
+    networks:
+      - cardano-kids-network
+
+  # Prometheus (Monitoring)
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ../deployment/monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ../deployment/monitoring/alert_rules.yml:/etc/prometheus/alert_rules.yml
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+    restart: unless-stopped
+    networks:
+      - cardano-kids-network
+
+  # Grafana (Visualization)
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3002:3000"
+    volumes:
+      - ../deployment/monitoring/grafana/provisioning:/etc/grafana/provisioning
+      - ../deployment/monitoring/grafana/dashboards:/var/lib/grafana/dashboards
+      - grafana-data:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=your_secure_password
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+    networks:
+      - cardano-kids-network
+
+  # Alert Manager
+  alertmanager:
+    image: prom/alertmanager:latest
+    ports:
+      - "9093:9093"
+    volumes:
+      - ../deployment/monitoring/alertmanager.yml:/etc/alertmanager/alertmanager.yml
+      - alertmanager-data:/alertmanager
+    command:
+      - '--config.file=/etc/alertmanager/alertmanager.yml'
+      - '--storage.path=/alertmanager'
+    restart: unless-stopped
+    networks:
+      - cardano-kids-network
+
+  # Node Exporter (System Metrics)
+  node-exporter:
+    image: prom/node-exporter:latest
+    ports:
+      - "9100:9100"
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+    restart: unless-stopped
+    networks:
+      - cardano-kids-network
+
+  # Postgres Exporter (Database Metrics)
+  postgres-exporter:
+    image: prometheuscommunity/postgres-exporter:latest
+    ports:
+      - "9187:9187"
+    environment:
+      - DATA_SOURCE_NAME=postgresql://cardanokids_user:your_secure_password@postgres:5432/cardanokids?sslmode=disable
+    depends_on:
+      - postgres
+    restart: unless-stopped
+    networks:
+      - cardano-kids-network
+
+  # Blockchain Metrics Exporter (Custom metrics for Cardano)
+  blockchain-metrics:
+    build:
+      context: ..
+      dockerfile: deployment/docker/blockchain-metrics.Dockerfile
+    ports:
+      - "9092:9092"
+    environment:
+      - CARDANO_NODE_URL=http://cardano-node:8090
+      - METRICS_PORT=9092
+    depends_on:
+      - cardano-node
+    restart: unless-stopped
+    networks:
+      - cardano-kids-network
+
+networks:
+  cardano-kids-network:
+    driver: bridge
+
+volumes:
+  postgres-data:
+  cardano-node-data:
+  ipfs-data:
+  prometheus-data:
+  grafana-data:
+  alertmanager-data:

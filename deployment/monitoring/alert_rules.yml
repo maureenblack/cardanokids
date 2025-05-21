@@ -1,0 +1,135 @@
+groups:
+  - name: cardano_alerts
+    rules:
+      # Cardano Node Alerts
+      - alert: CardanoNodeDown
+        expr: up{job="cardano-node"} == 0
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Cardano node is down"
+          description: "Cardano node has been down for more than 5 minutes."
+
+      - alert: CardanoNodeSyncLagging
+        expr: (cardano_node_metrics_slotNum_int - cardano_node_metrics_slotInEpoch_int) > 120
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Cardano node sync is lagging"
+          description: "Cardano node is more than 120 slots behind the chain tip for 10 minutes."
+
+      - alert: CardanoHighMemoryUsage
+        expr: process_resident_memory_bytes{job="cardano-node"} > 4294967296  # 4GB
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Cardano node high memory usage"
+          description: "Cardano node is using more than 4GB of memory for 5 minutes."
+
+      # Transaction Metrics
+      - alert: HighTransactionLatency
+        expr: cardano_transaction_submission_latency_seconds > 10
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High transaction submission latency"
+          description: "Transaction submission latency is higher than 10 seconds for 5 minutes."
+
+      - alert: TransactionRejectionRate
+        expr: rate(cardano_transaction_rejected_total[5m]) / rate(cardano_transaction_submitted_total[5m]) > 0.05
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High transaction rejection rate"
+          description: "More than 5% of submitted transactions are being rejected."
+
+      # API Server Alerts
+      - alert: APIHighErrorRate
+        expr: rate(http_requests_total{job="api-server", status=~"5.."}[5m]) / rate(http_requests_total{job="api-server"}[5m]) > 0.05
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High API error rate"
+          description: "More than 5% of API requests are failing."
+
+      - alert: APIHighLatency
+        expr: http_request_duration_seconds{job="api-server", quantile="0.95"} > 1
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High API latency"
+          description: "95th percentile of API request duration is above 1 second."
+
+      # Educational Content Alerts
+      - alert: ContentVerificationBacklog
+        expr: cardano_kids_content_pending_verification > 20
+        for: 1h
+        labels:
+          severity: warning
+        annotations:
+          summary: "Content verification backlog"
+          description: "More than 20 content items are pending verification for over an hour."
+
+      - alert: ContentPublishingFailures
+        expr: rate(cardano_kids_content_publish_failures_total[15m]) > 0
+        for: 15m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Content publishing failures"
+          description: "There have been failures in publishing content to the blockchain."
+
+      # Classroom Usage Alerts
+      - alert: HighClassroomConcurrency
+        expr: sum(cardano_kids_active_classroom_sessions) > 30
+        for: 10m
+        labels:
+          severity: info
+        annotations:
+          summary: "High classroom concurrency"
+          description: "More than 30 concurrent classroom sessions active for 10 minutes."
+
+      - alert: ClassroomResponseLatency
+        expr: cardano_kids_classroom_response_time_seconds{quantile="0.95"} > 2
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High classroom response latency"
+          description: "95th percentile of classroom API response time is above 2 seconds."
+
+      # Achievement NFT Alerts
+      - alert: AchievementNFTMintingFailures
+        expr: rate(cardano_kids_achievement_nft_mint_failures_total[15m]) > 0
+        for: 15m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Achievement NFT minting failures"
+          description: "There have been failures in minting achievement NFTs."
+
+      # System Resource Alerts
+      - alert: HighCPUUsage
+        expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{mode="idle"}[5m])) * 100) > 80
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High CPU usage"
+          description: "CPU usage is above 80% for 5 minutes."
+
+      - alert: HighDiskUsage
+        expr: (node_filesystem_size_bytes - node_filesystem_free_bytes) / node_filesystem_size_bytes * 100 > 85
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High disk usage"
+          description: "Disk usage is above 85% for 5 minutes."

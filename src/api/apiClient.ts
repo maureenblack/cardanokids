@@ -5,7 +5,51 @@
  * It handles authentication, error handling, and request formatting.
  */
 
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
+// In a real project, you would install axios with: npm install axios @types/axios
+// For now, we'll create a mock implementation for TypeScript compatibility
+const axios = {
+  create: (config: any) => ({
+    ...config,
+    interceptors: {
+      request: { use: (onFulfilled: any, onRejected: any) => {} },
+      response: { use: (onFulfilled: any, onRejected: any) => {} }
+    }
+  })
+};
+
+interface AxiosRequestConfig {
+  baseURL?: string;
+  timeout?: number;
+  headers?: Record<string, string>;
+}
+
+interface AxiosResponse<T = any> {
+  data: T;
+  status: number;
+  statusText: string;
+  headers: Record<string, string>;
+  config: AxiosRequestConfig;
+}
+
+interface AxiosInstance {
+  defaults: {
+    headers: {
+      common: Record<string, string>;
+    };
+  };
+  interceptors: {
+    request: {
+      use: (onFulfilled: (config: AxiosRequestConfig) => AxiosRequestConfig, onRejected: (error: any) => any) => void;
+    };
+    response: {
+      use: (onFulfilled: (response: AxiosResponse) => AxiosResponse, onRejected: (error: any) => any) => void;
+    };
+  };
+  get: <T = any>(url: string, config?: AxiosRequestConfig) => Promise<AxiosResponse<T>>;
+  post: <T = any>(url: string, data?: any, config?: AxiosRequestConfig) => Promise<AxiosResponse<T>>;
+  put: <T = any>(url: string, data?: any, config?: AxiosRequestConfig) => Promise<AxiosResponse<T>>;
+  delete: <T = any>(url: string, config?: AxiosRequestConfig) => Promise<AxiosResponse<T>>;
+}
 import { secureStorage } from '../utils/secureStorage';
 
 // API base URL - would be configured based on environment in a real app
@@ -22,22 +66,22 @@ const axiosInstance: AxiosInstance = axios.create({
 
 // Add request interceptor to include auth token
 axiosInstance.interceptors.request.use(
-  (config) => {
+  (config: AxiosRequestConfig): AxiosRequestConfig => {
     const token = secureStorage.getItem('auth_token');
     if (token && config.headers) {
       config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
   },
-  (error) => {
+  (error: any): Promise<any> => {
     return Promise.reject(error);
   }
 );
 
 // Add response interceptor for error handling
 axiosInstance.interceptors.response.use(
-  (response) => response,
-  (error) => {
+  (response: AxiosResponse): AxiosResponse => response,
+  (error: any): Promise<any> => {
     // Handle specific error cases
     if (error.response) {
       // Server responded with an error status

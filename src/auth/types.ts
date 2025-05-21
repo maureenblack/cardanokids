@@ -11,6 +11,13 @@ import { ageRangeToGroup } from '../context/AgeGroupContext';
 // Define AgeGroup type for use in authentication
 export type AgeGroup = 'young' | 'middle' | 'older';
 
+// Define AgeGroup enum values for use in components
+export const AgeGroup = {
+  YOUNG: 'young' as AgeGroup,
+  MIDDLE: 'middle' as AgeGroup,
+  OLDER: 'older' as AgeGroup
+};
+
 /**
  * Account types in the Cardano Kids platform
  */
