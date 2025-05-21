@@ -18,6 +18,7 @@ import { theme } from './theme';
 const HomePage = React.lazy(() => import('./pages/HomePage/HomePage'));
 const DashboardPage = React.lazy(() => import('./pages/DashboardPage/DashboardPage'));
 const LearningModulePage = React.lazy(() => import('./pages/LearningModulePage/LearningModulePage'));
+const LearningModulesIndex = React.lazy(() => import('./pages/LearningModulesIndex/LearningModulesIndex'));
 const ParentDashboardPage = React.lazy(() => import('./pages/ParentDashboardPage/ParentDashboardPage'));
 const AboutPage = React.lazy(() => import('./pages/AboutPage/AboutPage'));
 const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
@@ -37,7 +38,8 @@ const App = () => {
                   <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/dashboard" element={<DashboardPage />} />
-                    <Route path="/learning/:moduleId?" element={<LearningModulePage />} />
+                    <Route path="/learning" element={<LearningModulesIndex />} />
+                    <Route path="/learning/:moduleId" element={<LearningModulePage />} />
                     <Route path="/parent-dashboard" element={<ParentDashboardPage />} />
                     <Route path="/about" element={<AboutPage />} />
                     <Route path="/test-components" element={<TestComponents />} />

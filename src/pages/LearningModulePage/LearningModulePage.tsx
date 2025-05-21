@@ -32,6 +32,8 @@ import BlockchainBuilder from '../../components/Interactive/BlockchainBuilder';
 import HashGenerator from '../../components/Interactive/HashGenerator';
 import TokenCreator from '../../components/Interactive/TokenCreator';
 import SmartContractSimulator from '../../components/Interactive/SmartContractSimulator';
+import QuizComponent from '../../components/Interactive/QuizComponent';
+import CertificateCollection from '../../components/Interactive/CertificateCollection';
 
 // Define module content with age-appropriate versions
 const moduleContent = {
@@ -357,7 +359,7 @@ const moduleContent = {
       steps: [
         {
           title: 'What is a Blockchain?',
-          content: 'A blockchain is like a special chain of building blocks. Each block contains information and is connected to the block before it. Blocky loves to build chains of blocks to keep track of important information!',
+          content: 'A blockchain is like a special chain of building blocks. Each block contains information and is connected to the block before it. Blocky loves to build chains of blocks to keep track of important information! Imagine you and your friends are building a tower with blocks. Each time you add a new block, you write down what happened that day. Maybe you played a game, or learned something new. Each block sits on top of the one before it, creating a tower of memories that everyone can see.',
           activity: {
             type: 'interactive',
             title: 'Learn About Blockchain Blocks',
@@ -371,7 +373,7 @@ const moduleContent = {
         },
         {
           title: 'Build Your Own Blockchain',
-          content: 'Now it\'s your turn to build a blockchain! Add blocks to the chain and see how each block connects to the one before it. Each block gets a special code (called a "hash") that depends on what\'s inside the block AND the code from the previous block.',
+          content: 'Now it\'s your turn to build a blockchain! Add blocks to the chain and see how each block connects to the one before it. Each block gets a special code (called a "hash") that depends on what\'s inside the block AND the code from the previous block. This special code is like a fingerprint - no two blocks will have the same code, and if you change what\'s inside a block, its code will change too!',
           activity: {
             type: 'interactive',
             title: 'Blockchain Builder',
@@ -381,24 +383,117 @@ const moduleContent = {
           },
         },
         {
-          title: 'Why Blockchains Are Special',
-          content: 'Blockchains are special because they\'re very hard to change once they\'re created. If someone tries to change a block, all the blocks that come after it would need to change too! This makes blockchains very secure and trustworthy.',
+          title: 'The Magic of Hashing',
+          content: 'Remember the special code (hash) that each block gets? It\'s created by a magic process called "hashing." Hashing turns any message into a special code. The same message always makes the same code, but changing even one tiny part of your message makes a completely different code! This helps keep the blockchain secure because we can easily tell if someone tried to change something.',
           activity: {
-            type: 'quiz',
-            title: 'Blockchain Quiz',
-            description: 'Test what you\'ve learned about blockchains!',
-            questions: [
-              {
-                question: 'What connects one block to another in a blockchain?',
-                options: ['A special code called a hash', 'A piece of string', 'Nothing, they just sit next to each other', 'Glue'],
-                correctAnswer: 0
-              },
-              {
-                question: 'Why are blockchains hard to change?',
-                options: ['They\'re made of very hard material', 'Changing one block means you have to change all the blocks after it', 'They\'re locked with a key', 'They\'re too heavy to move'],
-                correctAnswer: 1
-              }
-            ]
+            type: 'interactive',
+            title: 'Hash Generator',
+            description: 'Try creating your own magic codes with the hash generator!',
+            component: 'HashGenerator',
+            props: {}
+          },
+        },
+        {
+          title: 'Connecting the Blocks',
+          content: 'In a blockchain, each block is connected to the one before it using its special hash code. This creates a chain that\'s very hard to break or change. If someone tries to change what\'s in one block, its hash will change, and it won\'t match what the next block is expecting! It\'s like if you tried to pull a block out from the middle of a tower - the whole tower above it would fall down!',
+          activity: {
+            type: 'interactive',
+            title: 'Blockchain Explorer',
+            description: 'See how blocks connect together in a chain.',
+            component: 'BlockchainBuilder',
+            props: { showConnections: true }
+          },
+        },
+        {
+          title: 'Why Blockchains Are Special',
+          content: 'Blockchains are special because they\'re very hard to change once they\'re created. If someone tries to change a block, all the blocks that come after it would need to change too! This makes blockchains very secure and trustworthy. Blockchains are used to keep track of important things like digital money (called cryptocurrency), digital art, and even who owns what in video games!',
+          activity: {
+            type: 'interactive',
+            title: 'Blockchain Applications',
+            description: 'Learn about all the cool things blockchains can do!',
+            component: 'video',
+            props: {
+              videoUrl: 'https://www.youtube.com/embed/aQWflNQuP_o',
+              title: 'What Can Blockchain Do?'
+            }
+          },
+        },
+        {
+          title: 'Blockchain Friends',
+          content: 'The Cardano blockchain has special friends who help keep it running smoothly. Ada is the leader who makes sure everyone follows the rules. Captain Block helps build new blocks. Professor Ledger keeps track of who has what. And Director Voltaire helps everyone make decisions together. They all work as a team to make Cardano a safe and fun place for everyone!',
+          activity: {
+            type: 'interactive',
+            title: 'Meet the Blockchain Friends',
+            description: 'Learn about the characters who help run the Cardano blockchain.',
+            component: 'video',
+            props: {
+              videoUrl: 'https://www.youtube.com/embed/Do8rHvr65ZA',
+              title: 'Meet the Blockchain Friends'
+            }
+          },
+        },
+        {
+          title: 'Test Your Knowledge',
+          content: 'Now it\'s time to show what you\'ve learned about blockchains! Take this quiz to test your knowledge and earn your very own Blockchain Builder NFT Certificate!',
+          activity: {
+            type: 'interactive',
+            title: 'Blockchain Builder Quiz',
+            description: 'Complete this quiz to earn your Blockchain Builder certificate!',
+            component: 'QuizComponent',
+            props: {
+              title: 'Blockchain Builder Quiz',
+              description: 'Show what you\'ve learned about blockchains and earn your certificate!',
+              questions: [
+                {
+                  id: 'q1',
+                  question: 'What connects one block to another in a blockchain?',
+                  options: ['A special code called a hash', 'A piece of string', 'Nothing, they just sit next to each other', 'Glue'],
+                  correctAnswer: 0,
+                  explanation: 'Blocks are connected by their hash codes. Each block contains the hash of the previous block, creating a chain.'
+                },
+                {
+                  id: 'q2',
+                  question: 'Why are blockchains hard to change?',
+                  options: ['They\'re made of very hard material', 'Changing one block means you have to change all the blocks after it', 'They\'re locked with a key', 'They\'re too heavy to move'],
+                  correctAnswer: 1,
+                  explanation: 'If you change one block, its hash changes, which means the next block no longer points to the correct hash, breaking the chain.'
+                },
+                {
+                  id: 'q3',
+                  question: 'What happens if you change what\'s inside a block?',
+                  options: ['Nothing changes', 'Only that block\'s hash changes', 'The whole blockchain breaks', 'The block turns red'],
+                  correctAnswer: 1,
+                  explanation: 'When you change what\'s inside a block, its hash will change, but the blockchain doesn\'t automatically update the connections.'
+                },
+                {
+                  id: 'q4',
+                  question: 'What is a hash?',
+                  options: ['A type of breakfast food', 'A special code that\'s unique to each block', 'A type of building block', 'The name of a blockchain character'],
+                  correctAnswer: 1,
+                  explanation: 'A hash is a special code generated from the contents of a block. It\'s like a fingerprint - unique to that specific block\'s content.'
+                },
+                {
+                  id: 'q5',
+                  question: 'What can blockchains be used for?',
+                  options: ['Only for building towers', 'Only for digital money', 'Many things like digital money, art, and tracking who owns what', 'Nothing useful'],
+                  correctAnswer: 2,
+                  explanation: 'Blockchains have many uses! They can track digital money (cryptocurrency), digital art (NFTs), ownership records, and much more.'
+                }
+              ],
+              passingScore: 60,
+              moduleId: 'building-blocks'
+            }
+          },
+        },
+        {
+          title: 'Your Certificates',
+          content: 'Congratulations on completing the Blockchain Builder module! Here you can view all the certificates you\'ve earned. Each certificate is stored as a special digital item called an NFT (Non-Fungible Token) on the Cardano blockchain. This means your achievement is recorded forever and can\'t be changed or deleted!',
+          activity: {
+            type: 'interactive',
+            title: 'My NFT Certificates',
+            description: 'View all the certificates you\'ve earned.',
+            component: 'CertificateCollection',
+            props: {}
           },
         },
       ],
@@ -531,6 +626,10 @@ const LearningModulePage = () => {
             return <TokenCreator {...activity.props} />;
           case 'SmartContractSimulator':
             return <SmartContractSimulator {...activity.props} />;
+          case 'QuizComponent':
+            return <QuizComponent {...activity.props} />;
+          case 'CertificateCollection':
+            return <CertificateCollection />;
           case 'video':
             return (
               <Box sx={{ mt: 3, position: 'relative', paddingTop: '56.25%', width: '100%' }}>
