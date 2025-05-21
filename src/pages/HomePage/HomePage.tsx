@@ -149,8 +149,8 @@ const HomePage = () => {
                     objectFit: 'contain',
                     display: { xs: 'none', md: 'block' },
                   }}
-                  alt="Hero image"
-                  src="https://img.freepik.com/free-vector/children-learning-concept-illustration_114360-1607.jpg"
+                  alt="Cardano Kids Logo"
+                  src={require('../../assets/images/cardanokids-logo.png')}
                 />
               </motion.div>
             </Grid>

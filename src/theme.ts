@@ -5,15 +5,15 @@ import { createTheme } from '@mui/material/styles';
 export const theme = createTheme({
   palette: {
     primary: {
-      main: '#8E44AD', // Playful purple
-      light: '#AF7AC5',
-      dark: '#6C3483',
+      main: '#0033AD', // Cardano blue
+      light: '#4D6FFF',
+      dark: '#001F7A',
       contrastText: '#ffffff',
     },
     secondary: {
-      main: '#FF9800', // Friendly orange
-      light: '#FFB74D',
-      dark: '#F57C00',
+      main: '#FF5722', // Vibrant orange
+      light: '#FF8A50',
+      dark: '#C41C00',
       contrastText: '#ffffff',
     },
     background: {
@@ -40,23 +40,23 @@ export const theme = createTheme({
       light: '#FFD54F',
       dark: '#FFA000',
     },
-    // Custom colors for age groups - more vibrant and fun
+    // Custom colors for age groups - based on Cardano brand
     young: {
-      main: '#00C853', // Bright green for youngest kids (6-8)
-      light: '#69F0AE',
-      dark: '#00A043',
+      main: '#0033AD', // Cardano blue for youngest kids (6-8)
+      light: '#4D6FFF',
+      dark: '#001F7A',
       contrastText: '#ffffff',
     },
     middle: {
-      main: '#FF4081', // Vibrant pink for middle group (9-11)
-      light: '#FF79B0',
-      dark: '#C60055',
+      main: '#3154D4', // Lighter Cardano blue for middle group (9-11)
+      light: '#6B7FFF',
+      dark: '#0033AD',
       contrastText: '#ffffff',
     },
     older: {
-      main: '#2979FF', // Bright blue for older kids (12-14)
-      light: '#75A7FF',
-      dark: '#004ECB',
+      main: '#1A2980', // Darker Cardano blue for older kids (12-14)
+      light: '#26D0CE',
+      dark: '#0F1854',
       contrastText: '#ffffff',
     },
   },
