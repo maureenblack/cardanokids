@@ -126,13 +126,10 @@ const Navigation = () => {
       <Box sx={{ p: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <Box
           component="img"
-          src="/src/assets/images/cardanokids-logo.png"
+          src={require('../../assets/images/cardanokids-logo.png')}
           alt="Cardano Kids Logo"
-          sx={{ height: 40, mr: 1 }}
+          sx={{ height: 80, width: 'auto' }}
         />
-        <Typography variant="h6" component="div" sx={{ fontWeight: 'bold' }}>
-          Cardano Kids
-        </Typography>
       </Box>
       <Divider />
       <List>
@@ -219,18 +216,10 @@ const Navigation = () => {
           >
             <Box
               component="img"
-              src="/src/assets/images/cardanokids-logo.png"
+              src={require('../../assets/images/cardanokids-logo.png')}
               alt="Cardano Kids Logo"
-              sx={{ height: 40, mr: 1 }}
+              sx={{ height: 70, mr: 1 }}
             />
-            <Typography
-              variant="h6"
-              sx={{
-                fontWeight: 'bold',
-              }}
-            >
-              Cardano Kids
-            </Typography>
           </Box>
           
           {!isMobile && (

@@ -36,7 +36,7 @@ const moduleContent = {
       title: 'Digital Treasures',
       description: 'Learn about digital ownership and how blockchain helps us keep track of who owns what.',
       character: 'Captain Block',
-      characterImage: 'https://via.placeholder.com/200x200?text=Captain+Block',
+      characterImage: 'https://img.freepik.com/free-vector/cute-astronaut-superhero-cartoon-vector-icon-illustration-science-technology-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-3900.jpg',
       steps: [
         {
           title: 'What are Digital Treasures?',
@@ -89,7 +89,7 @@ const moduleContent = {
       title: 'Digital Treasures',
       description: 'Explore digital ownership and how blockchain technology secures and verifies who owns what in the digital world.',
       character: 'Professor Ledger',
-      characterImage: 'https://via.placeholder.com/200x200?text=Professor+Ledger',
+      characterImage: 'https://img.freepik.com/free-vector/cute-boy-scientist-cartoon-vector-icon-illustration-people-science-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-3851.jpg',
       steps: [
         {
           title: 'Understanding Digital Assets',
@@ -142,7 +142,7 @@ const moduleContent = {
       title: 'Digital Treasures',
       description: 'A comprehensive exploration of digital asset ownership, non-fungible tokens (NFTs), and how blockchain technology enables verifiable digital property rights.',
       character: 'Dr. Crypto',
-      characterImage: 'https://via.placeholder.com/200x200?text=Dr+Crypto',
+      characterImage: 'https://img.freepik.com/free-vector/cute-robot-wearing-glasses-cartoon-vector-icon-illustration-technology-education-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-3717.jpg',
       steps: [
         {
           title: 'The Evolution of Digital Ownership',

@@ -28,17 +28,17 @@ const HomePage = () => {
     {
       title: 'Interactive Learning',
       description: 'Learn about blockchain through fun, interactive games and activities.',
-      image: 'https://via.placeholder.com/400x300?text=Interactive+Learning',
+      image: 'https://img.freepik.com/free-vector/children-learning-together-concept_23-2148630278.jpg',
     },
     {
       title: 'Age-Appropriate Content',
       description: 'Content tailored to your age group, making complex concepts easy to understand.',
-      image: 'https://via.placeholder.com/400x300?text=Age+Appropriate',
+      image: 'https://img.freepik.com/free-vector/kids-online-lessons-concept_23-2148520728.jpg',
     },
     {
       title: 'Track Your Progress',
       description: 'See your learning journey and earn achievements as you master new concepts.',
-      image: 'https://via.placeholder.com/400x300?text=Progress+Tracking',
+      image: 'https://img.freepik.com/free-vector/children-doing-different-activities_1308-30818.jpg',
     },
   ];
   
@@ -48,19 +48,19 @@ const HomePage = () => {
       id: 'digital-treasures',
       title: 'Digital Treasures',
       description: 'Learn about digital ownership and how blockchain keeps track of who owns what.',
-      image: 'https://via.placeholder.com/300x200?text=Digital+Treasures',
+      image: 'https://img.freepik.com/free-vector/children-playing-with-blocks-toys_1308-133160.jpg',
     },
     {
       id: 'blockchain-basics',
       title: 'Blockchain Basics',
       description: "Discover how blockchain works and why it's special.",
-      image: 'https://via.placeholder.com/300x200?text=Blockchain+Basics',
+      image: 'https://img.freepik.com/free-vector/children-playing-with-blocks-toys_1308-118859.jpg',
     },
     {
       id: 'smart-contracts',
       title: 'Smart Contracts',
       description: "Explore how smart contracts work like digital promises that can't be broken.",
-      image: 'https://via.placeholder.com/300x200?text=Smart+Contracts',
+      image: 'https://img.freepik.com/free-vector/children-playing-with-blocks-toys_1308-126336.jpg',
     },
   ];
   
@@ -150,7 +150,7 @@ const HomePage = () => {
                     display: { xs: 'none', md: 'block' },
                   }}
                   alt="Hero image"
-                  src="https://via.placeholder.com/600x400?text=Cardano+Kids"
+                  src="https://img.freepik.com/free-vector/children-learning-concept-illustration_114360-1607.jpg"
                 />
               </motion.div>
             </Grid>
