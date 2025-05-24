@@ -34,6 +34,11 @@ import TokenCreator from '../../components/Interactive/TokenCreator';
 import SmartContractSimulator from '../../components/Interactive/SmartContractSimulator';
 import QuizComponent from '../../components/Interactive/QuizComponent';
 import CertificateCollection from '../../components/Interactive/CertificateCollection';
+import BlockchainStorybook from '../../components/Interactive/BlockchainStorybook';
+import BlockchainValidator from '../../components/Interactive/BlockchainValidator';
+
+// Import module content
+import BlockchainHeroesModule from '../../modules/BlockchainHeroesModule';
 
 // Define module content with age-appropriate versions
 const moduleContent = {
@@ -595,6 +600,7 @@ const moduleContent = {
       ],
     },
   },
+  'blockchain-heroes': BlockchainHeroesModule,
   // Additional modules would be added here
 };
 
@@ -630,6 +636,10 @@ const LearningModulePage = () => {
             return <QuizComponent {...activity.props} />;
           case 'CertificateCollection':
             return <CertificateCollection />;
+          case 'BlockchainStorybook':
+            return <BlockchainStorybook {...activity.props} />;
+          case 'BlockchainValidator':
+            return <BlockchainValidator {...activity.props} />;
           case 'video':
             return (
               <Box sx={{ mt: 3, position: 'relative', paddingTop: '56.25%', width: '100%' }}>

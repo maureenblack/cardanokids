@@ -43,30 +43,69 @@ const LearningModulesIndex: React.FC = () => {
   
   // Available modules
   const modules: Module[] = [
+    // BEGINNER LEVEL (Ages 6-8)
+    {
+      id: 'blockchain-friends',
+      title: 'COURSE 1: MEET THE BLOCKCHAIN FRIENDS',
+      description: 'Learn about blockchain through fun stories and activities with Ada and her friends.',
+      image: 'https://img.freepik.com/free-vector/hand-drawn-nft-concept_23-2149199088.jpg',
+      level: 'beginner',
+      steps: 8,
+      completed: completedModules.includes('blockchain-friends')
+    },
     {
       id: 'building-blocks',
-      title: 'Blockchains Are Like Building Blocks',
-      description: 'Learn how blockchains work by building your own chain of blocks!',
+      title: 'Module 1: What is a Blockchain?',
+      description: 'Learn the basics of blockchain technology through fun, interactive activities.',
       image: 'https://img.freepik.com/free-vector/gradient-blockchain-concept_23-2149166908.jpg',
       level: 'beginner',
       steps: 8,
       completed: completedModules.includes('building-blocks')
     },
     {
+      id: 'blockchain-blocks',
+      title: 'Module 2: Blockchains Are Like Building Blocks',
+      description: 'Learn how blockchains work by building your own chain of blocks!',
+      image: 'https://img.freepik.com/free-vector/gradient-blockchain-concept_23-2149166908.jpg',
+      level: 'beginner',
+      steps: 8,
+      completed: completedModules.includes('blockchain-blocks')
+    },
+    {
+      id: 'blockchain-heroes',
+      title: 'Module 3: Blockchain Heroes',
+      description: 'Join Ada and her friends on an adventure to learn how blockchain heroes keep the network safe!',
+      image: 'https://img.freepik.com/free-vector/gradient-superhero-twitch-background_23-2149192541.jpg',
+      level: 'beginner',
+      steps: 8,
+      completed: completedModules.includes('blockchain-heroes')
+    },
+    {
+      id: 'cardano-world',
+      title: 'COURSE 2: CARDANO WORLD ADVENTURES',
+      description: 'Explore the exciting world of Cardano and learn about its unique features.',
+      image: 'https://img.freepik.com/free-vector/gradient-crypto-concept_23-2149166905.jpg',
+      level: 'beginner',
+      steps: 8,
+      completed: completedModules.includes('cardano-world')
+    },
+    {
+      id: 'cardano-land',
+      title: 'Module 1: Welcome to Cardano Land',
+      description: 'Discover the magical world of Cardano and meet its friendly inhabitants.',
+      image: 'https://img.freepik.com/free-vector/gradient-metaverse-concept_23-2149166922.jpg',
+      level: 'beginner',
+      steps: 8,
+      completed: completedModules.includes('cardano-land')
+    },
+    {
       id: 'digital-treasures',
-      title: 'Digital Treasures',
+      title: 'Module 2: Digital Treasures',
       description: 'Learn about digital ownership and how blockchain helps us keep track of who owns what.',
       image: 'https://img.freepik.com/free-vector/gradient-nft-concept_23-2149166903.jpg',
       level: 'beginner',
-      steps: 5
-    },
-    {
-      id: 'blockchain-friends',
-      title: 'Meet the Blockchain Friends',
-      description: 'Learn about blockchain through fun stories and activities with Ada and her friends.',
-      image: 'https://img.freepik.com/free-vector/hand-drawn-nft-concept_23-2149199088.jpg',
-      level: 'beginner',
-      steps: 6
+      steps: 8,
+      completed: completedModules.includes('digital-treasures')
     }
   ];
   
